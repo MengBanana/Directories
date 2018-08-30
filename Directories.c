@@ -1,7 +1,7 @@
 /*
- * This problem is to write a set of C functions that
+ * This program is a set of C functions that
  * perform specified operations on files and directories
- * that require determining and using information about
+ * that require using information about
  * files, directories and directory entries.
  *
  */
@@ -55,9 +55,6 @@ char* makePath(const char* dirName, const char* fName, char* pathName) {
  * @return number of sub-directories
  */
 long countDirectories(const char* dirName) {
-    // your code here
-    // hint: get entry type from inode: struct stat s
-    // hint: use makePath above to make path
     struct stat s;
     if (0 == stat(dirName, &s)) {
         if (S_ISDIR(s.st_mode)) {
@@ -98,7 +95,6 @@ long countDirectories(const char* dirName) {
  * @return size of regular file or -1
  */
 long fileSize(const char* fname) {
-    // your code here
     struct stat s;
     if (0 == stat(fname, &s)) { // check if does not exist
         if (S_ISREG(s.st_mode)) { // check if not a regular file
@@ -117,9 +113,6 @@ long fileSize(const char* fname) {
  * @return total size of all regular files
  */
 long fileSizes(const char* dirName) {
-    // your code here
-    // hint: get entry type from inode
-    // hint: use makePath above to make path
     struct stat s;
     if (0 == stat(dirName, &s)) {
         if (S_ISDIR(s.st_mode)) {
@@ -158,7 +151,6 @@ long fileSizes(const char* dirName) {
  *     are the same one, and false otherwise
  */
 bool isSameFile(const char* fname1, const char* fname2) {
-    // your code here
     struct stat s1;
     struct stat s2;
     if ( 0 != stat(fname1, &s1) || 0 != stat(fname2, &s2)) {
