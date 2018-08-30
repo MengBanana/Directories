@@ -12,4 +12,4 @@ directory, and using state mode to determine if it is a regular file or
 directory.
 
 It also check if two names refer to the same file or directory by
-comparing inode.
+comparing inode. 
